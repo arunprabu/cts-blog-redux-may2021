@@ -4,6 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// Step 1: Setup the the Redux Store here
+import { createStore } from 'redux';
+
+// Step 5: let’s import the combinedReducer 
+// and pass it to the store as an argument.
+import rootReducer from './reducers';
+
+// Step 2: Exec createStore() method and save it in a variable 
+const store = createStore(rootReducer); //this needs a special argument called 'reducer'
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
