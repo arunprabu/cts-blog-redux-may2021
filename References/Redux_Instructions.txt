@@ -146,7 +146,7 @@ Step 8:
 
 Step 9:
   Almost done... 
-  to dispatch action, let's write form submit logic in PostForm.js
+  to dispatch action, let's write form submission logic in PostForm.js
 
   // Step 9.1
   form code can be  the following with ref's and submission logic 
