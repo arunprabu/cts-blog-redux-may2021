@@ -369,15 +369,6 @@ Step 18:
 Step 19: 
   So, services/postService.js should have the following code. 
 
-    // receiving response data as posts and attaching an event type 
-    // called GET_POSTS and all the posts and returned to postReducer
-    export const getPosts = (posts) => {
-      return {
-        type: GET_POSTS,
-        posts
-      }
-    };
-
     //Initial Load to fetch all posts
     export const getAllPosts = () => {
       return (dispatch) => {
@@ -385,7 +376,10 @@ Step 19:
           .then(response => {
             //calling the above util method to process data, 
             // that are ready to be sent to post reducer
-            dispatch(getPosts(response.data))
+            dispatch({
+              type: GET_POSTS,
+              response.data
+            });
           })
           .catch(error => {
             throw(error);
@@ -499,7 +493,7 @@ Step 27:
   import { getPostById, deletePost } from '../../services/postService';
 
   // Step 27.2
-  deleteHandler = () => {
+  handleDelete = () => {
     this.props.dispatch(deletePost(this.props.post.id));
   }
 

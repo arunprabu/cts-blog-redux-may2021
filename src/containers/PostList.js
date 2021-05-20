@@ -3,7 +3,16 @@ import { Link } from 'react-router-dom';
 // Step 16: using Connect from react-redux
 import { connect } from 'react-redux';
 
+import { getPosts } from '../services/postService';
+
 class PostList extends Component {
+
+  componentDidMount(){
+    console.log('Inside componentDidMount');
+    // send ajax calls to load all posts..
+    // dispatch service method
+    this.props.dispatch( getPosts() )
+  }
 
   render() {
     console.log(this.props);
@@ -11,14 +20,14 @@ class PostList extends Component {
     if(this.props.posts && this.props.posts.length > 0){
       posts = this.props.posts.map( (post, index )=> {
         return(
-          <div className="list-group-item list-group-item-action" key={index}>
+          <div className="list-group-item list-group-item-action text-start" key={index}>
             <div className="d-flex w-100 justify-content-between">
               <h5 className="mb-1">
                 <Link to={`posts/${post.id}`}>{post.title}</Link>
               </h5>
               <small>Post Id: {post.id}</small>
             </div>
-            <p className="mb-1">
+            <p className="mb-1 text-left">
               {post.body}
             </p>
           </div>

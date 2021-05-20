@@ -17,19 +17,21 @@ const postReducer = (state = [], action) => {
   // Step 8: Have proper switch case for every action
   switch(action.type) {
     case ADD_POST:
+      // changing the state immutably
+      // Refer: https://redux.js.org/recipes/structuring-reducers/immutable-update-patterns
       let addPostState = [
         ...state,
         action.payload
       ];
       return addPostState;
     case GET_POSTS:
-      return state;
+      return action.payload;
     case GET_POST_BY_ID:
-      return state;
+      return action.payload;
     case EDIT_POST:
       return state;
     case DELETE_POST:
-      return state;
+      return action.payload;
     default:
       return state;
   }

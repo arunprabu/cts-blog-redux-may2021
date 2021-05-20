@@ -20,7 +20,8 @@ function App() {
           <Switch>
             <Route path='/' component={Home} exact/>
             <Route path='/posts' component={Posts} exact/>
-            <Route path='/posts/1' component={PostDetails} />
+            {/* postId URL Parameter */}
+            <Route path='/posts/:postId' component={PostDetails} />
             <Route path='/about' component={About} />
             {/* TODO: Learn about 404 */}
           </Switch>
