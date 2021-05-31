@@ -16,8 +16,6 @@ class PostForm extends Component {
     }
     
    this.props.dispatch(createPost( formData )); // this is the service method
-
-
   }
 
   render() {
